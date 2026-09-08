@@ -1,0 +1,24 @@
+name: Save baby mascot
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/save-baby-mascot.yml
+permissions:
+  contents: write
+jobs:
+  save:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download selected mascot
+        run: |
+          mkdir -p assets
+          curl --fail --location --retry 3 --output assets/baby-mascot.png 'https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:1845e932-2683-4f78-a303-1ecba2d1a166'
+          file assets/baby-mascot.png | grep -q 'PNG image data'
+      - name: Commit website asset
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/baby-mascot.png
+          git diff --cached --quiet || (git commit -m 'Add selected 3D baby mascot' && git push)
