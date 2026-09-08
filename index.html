@@ -1,99 +1,10 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Family OS — System Update</title>
-<style>
-  *{box-sizing:border-box}
-  html,body{margin:0;min-height:100%;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#080b10;color:#e9eef5}
-  body{display:flex;align-items:center;justify-content:center;padding:18px}
-  .phone{width:min(100%,430px);min-height:680px;border:1px solid #26303d;border-radius:28px;background:linear-gradient(160deg,#0c1118,#07090d);box-shadow:0 24px 70px #0008;padding:28px 22px;position:relative;overflow:hidden}
-  .glow{position:absolute;inset:-40%;background:radial-gradient(circle,#18334a22,transparent 55%);pointer-events:none}
-  .top{font-size:11px;color:#738094;letter-spacing:1.5px}
-  h1{font-size:24px;margin:10px 0 5px;letter-spacing:-.5px}
-  .sub{font-size:12px;color:#8f9aaa;line-height:1.5;margin-bottom:28px}
-  button{border:1px solid #506579;background:#111b26;color:#dcecff;border-radius:10px;padding:13px 20px;font:inherit;font-size:12px;cursor:pointer;width:100%}
-  button:active{transform:scale(.98)}
-  .screen{display:none}.screen.active{display:block}
-  .terminal{font-size:11px;line-height:1.8;color:#8d9aaa;min-height:440px}
-  .line{opacity:0;animation:show .35s forwards}.white{color:#e8edf3}.ok{color:#9cc9a7}
-  .member{margin:13px 0 19px;padding:11px 12px;border:1px solid #222c38;border-radius:10px;background:#0a0f15}
-  .role{font-size:13px;color:#e9eef5;margin-bottom:7px}.status{font-size:10px;color:#7e8998}
-  .bar{height:5px;background:#1c2631;border-radius:99px;overflow:hidden;margin:7px 0}.fill{height:100%;width:0;background:#a8bdd0;transition:width .7s ease}
-  .center{text-align:center}.big{font-size:28px;margin-top:42px}.reveal{font-family:system-ui,sans-serif;font-weight:700;font-size:24px;line-height:1.2;margin:15px 0}.baby{font-size:58px}.small{font-size:11px;color:#9aa5b4;line-height:1.6}
-  .finalbar{height:8px;background:#1c2631;border-radius:99px;overflow:hidden;margin:20px 0}.finalbar div{height:100%;width:0;background:#d2dee9;transition:width 1.8s ease}
-  .pulse{animation:pulse 1s infinite alternate}@keyframes pulse{to{opacity:.45}}@keyframes show{to{opacity:1}}
-</style>
-</head>
-<body>
-<div class="phone">
-<div class="glow"></div>
-
-<section id="start" class="screen active">
-  <div class="top">FAMILY OS // SECURE UPDATE</div>
-  <h1>System Update Available</h1>
-  <div class="sub">A major family update is ready to install.<br><br>Estimated installation time: <b>12 seconds</b>.<br><br>Do not close this window.</div>
-  <button id="startBtn">▶ START FAMILY UPDATE</button>
-</section>
-
-<section id="run" class="screen">
-  <div class="top">FAMILY OS // ANALYSIS</div>
-  <div id="terminal" class="terminal"></div>
-</section>
-
-<section id="final" class="screen">
-  <div class="center">
-    <div class="top">FAMILY OS // UPDATE COMPLETE</div>
-    <div class="big">🎉</div>
-    <div class="reveal">NEW FAMILY MEMBER<br>DETECTED</div>
-    <div class="baby">👶</div>
-    <div class="reveal">YOU'RE GOING TO BE<br>GRANDPARENTS! ❤️</div>
-    <div class="small">Grandmother • Grandfather • Mother • Father • Uncle</div>
-    <div class="finalbar"><div id="finalFill"></div></div>
-    <div class="small"><b>BABY STATUS: LOADING…</b><br>Installation will complete soon.<br><br>Estimated arrival: <b>[MONTH / YEAR]</b></div>
-  </div>
-</section>
-</div>
-
-<script>
-const terminal=document.getElementById('terminal');
-const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-function add(text,cls=''){
-  const d=document.createElement('div'); d.className='line '+cls; d.innerHTML=text;
-  terminal.appendChild(d); requestAnimationFrame(()=>d.style.animationDelay='0ms');
-}
-function member(icon,name,pct,status){
-  const d=document.createElement('div'); d.className='member';
-  d.innerHTML=`<div class="role">${icon} ${name}</div><div class="status">${status}</div><div class="bar"><div class="fill"></div></div><div class="status">${pct}%</div>`;
-  terminal.appendChild(d); requestAnimationFrame(()=>d.querySelector('.fill').style.width=pct+'%');
-}
-async function run(){
-  document.getElementById('start').classList.remove('active');
-  document.getElementById('run').classList.add('active');
-  add('> Initializing Family OS...','white'); await sleep(500);
-  add('> Connecting to family database...'); await sleep(500);
-  add('✓ Connection established','ok'); await sleep(350);
-  add('> Analyzing family members...','white'); await sleep(400);
-
-  member('👩','MOTHER','72','Relationship verified'); await sleep(700);
-  member('👨','FATHER','81','Relationship verified'); await sleep(700);
-  member('👵','GRANDMOTHER','64','Role detected'); await sleep(700);
-  member('👴','GRANDFATHER','76','Role detected'); await sleep(700);
-
-  member('👨','BROTHER','91','Searching for available family roles...'); await sleep(700);
-  add('⚠ ROLE UPDATE REQUIRED','white'); await sleep(350);
-  add('> New role detected: <b>UNCLE</b> ❤️','ok'); await sleep(500);
-
-  add('> Running final family scan...','white'); await sleep(450);
-  add('> Searching for missing family member...'); await sleep(600);
-  add('🚨 NEW USER DETECTED','white'); await sleep(500);
-
-  document.getElementById('run').classList.remove('active');
-  document.getElementById('final').classList.add('active');
-  setTimeout(()=>document.getElementById('finalFill').style.width='99%',300);
-}
-document.getElementById('startBtn').onclick=run;
-</script>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080b10"><title>New Product Launch</title><meta name="description" content="A little surprise is loading. Open to begin."><style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#080b10;color:#e9eef5;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}body{display:flex;justify-content:center;align-items:center;padding:16px}.phone{width:min(100%,430px);min-height:580px;border:1px solid #26303d;border-radius:25px;background:linear-gradient(160deg,#0d131b,#080b10);padding:25px 20px;position:relative;overflow:hidden}.top{font-size:10px;color:#8795a7;letter-spacing:1.5px}.heading{font-size:23px;line-height:1.25;margin:13px 0}.sub{font-size:13px;color:#9aa8b8;line-height:1.8;margin:18px 0 28px}.screen{display:none}.screen.active{display:block}button{width:100%;padding:14px;border:1px solid #52677b;border-radius:10px;background:#152232;color:#e9f1fa;font:inherit;font-size:12px;cursor:pointer}button:focus-visible{outline:2px solid #c2d7ed;outline-offset:3px}.status{font-size:12px;color:#aebdcb;line-height:1.6;margin:22px 0 8px;min-height:40px}.bar{height:6px;background:#202c39;border-radius:99px;overflow:hidden}.fill{height:100%;width:0;background:#b3c7d9;transition:width .7s ease}.progress{font-size:10px;color:#8795a7;margin-top:8px}.members{display:grid;gap:8px;margin-top:18px}.member{border:1px solid #25313e;border-radius:10px;background:#0c131c;padding:10px 12px;opacity:0;transform:translateY(5px);transition:opacity .3s,transform .3s}.member.visible{opacity:1;transform:none}.member.current{border-color:#50667b}.role{font-size:12px;display:flex;justify-content:space-between;gap:8px}.role span:last-child{color:#8f9fb1;font-size:10px}.mini{height:4px;margin:9px 0 6px;background:#202c39;border-radius:99px;overflow:hidden}.mini div{height:100%;width:0;background:#a8bdce;transition:width .7s}.detail{font-size:10px;color:#8f9fb1}.center{text-align:center}.baby{font-size:48px;margin:18px 0 8px}.reveal{font-family:system-ui,sans-serif;font-size:24px;font-weight:750;line-height:1.25;margin:12px 0}.small{font-size:12px;color:#a6b3c2;line-height:1.8}.finalbar{margin:21px 0 10px}.finalbar .bar{height:8px}.finalbar .fill{transition:width 1.8s ease}.notice{font-size:13px;color:#e1eaf3;margin:16px 0}.replay{margin-top:25px;background:transparent;border-color:#334353;color:#a9b9c9}.fade{animation:fade .35s both}@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}@media(max-width:360px){body{padding:9px}.phone{padding:20px 15px;min-height:550px}.heading{font-size:21px}.member{padding:8px 10px}.members{gap:6px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style></head><body><main class="phone">
+<section id="start" class="screen active"><div class="top">FAMILY OS // SECURE UPDATE</div><h1 class="heading">System Update Available</h1><p class="sub">A major family update is ready to install.<br><br>Estimated time: <b>15 seconds</b>.<br><br>Do not close this window.</p><button id="startBtn">▶ START FAMILY UPDATE</button></section>
+<section id="run" class="screen" aria-label="Family update in progress"><div class="top">FAMILY OS // ANALYSIS</div><h1 class="heading">Analyzing family…</h1><div id="status" class="status" aria-live="polite">Initializing Family OS…</div><div class="bar"><div id="mainFill" class="fill"></div></div><div id="progress" class="progress">0% COMPLETE</div><div id="members" class="members"></div></section>
+<section id="final" class="screen"><div class="center"><div class="top">FAMILY OS // UPDATE COMPLETE</div><div class="baby">👶</div><div class="reveal">NEW FAMILY MEMBER<br>DETECTED</div><div class="reveal">YOU'RE GOING TO BE<br>GRANDPARENTS! ❤️</div><div class="small">Grandmother • Grandfather<br>Mother • Father • Uncle</div><div class="finalbar"><div class="bar"><div id="finalFill" class="fill"></div></div><div class="progress">BABY LOADING… 99%</div></div><div class="small">Installation will complete soon.<br>Estimated arrival: <b>[MONTH / YEAR]</b></div><button class="replay" id="replayBtn">↻ REPLAY SURPRISE</button></div></section>
+</main><script>
+const $=id=>document.getElementById(id);const sleep=ms=>new Promise(r=>setTimeout(r,ms));let running=false;function screen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('active',s.id===id))}function status(text){$('status').textContent=text}function progress(n){$('mainFill').style.width=n+'%';$('progress').textContent=n+'% COMPLETE'}function member(icon,name,pct,detail){const d=document.createElement('div');d.className='member';const label=document.createElement('div');label.className='role';const a=document.createElement('span');a.textContent=icon+' '+name;const b=document.createElement('span');b.textContent=pct+'%';label.append(a,b);const bar=document.createElement('div');bar.className='mini';const fill=document.createElement('div');bar.append(fill);const info=document.createElement('div');info.className='detail';info.textContent=detail;d.append(label,bar,info);$('members').append(d);requestAnimationFrame(()=>{d.classList.add('visible','current');fill.style.width=pct+'%'});return{detail:info,element:d}}async function run(){if(running)return;running=true;$('members').replaceChildren();progress(0);screen('run');status('Initializing Family OS…');await sleep(650);status('Connection established ✓');progress(8);await sleep(550);status('Analyzing family members…');await sleep(400);const people=[['👩','MOTHER',72],['👨','FATHER',81],['👵','GRANDMOTHER',64],['👴','GRANDFATHER',76]];for(let i=0;i<people.length;i++){const p=people[i];status('Analyzing '+p[1].toLowerCase()+'…');const m=member(p[0],p[1],p[2],'Relationship verified ✓');progress(15+i*12);await sleep(1350);m.element.classList.remove('current')}status('Checking available family roles…');const bro=member('👨','BROTHER',91,'Searching for new role…');progress(68);await sleep(950);bro.detail.textContent='BROTHER → UNCLE ❤️';bro.element.classList.add('current');status('⚠ Role upgrade detected: UNCLE');await sleep(1150);bro.element.classList.remove('current');status('Running final family scan…');progress(85);await sleep(800);status('Searching for missing family member…');await sleep(850);status('🚨 NEW USER DETECTED');progress(100);await sleep(750);screen('final');$('finalFill').style.width='0';requestAnimationFrame(()=>$('finalFill').style.width='99%');running=false}function replay(){if(running)return;$('finalFill').style.width='0';screen('start')}$('startBtn').addEventListener('click',run);$('replayBtn').addEventListener('click',replay);
+</script></body></html>
