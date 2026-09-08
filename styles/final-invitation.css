@@ -1,0 +1,40 @@
+/* Festive reveal only. All previous screens and timing remain unchanged. */
+body:has(#final.active){background:#21070c;color:#fff1d7}
+.phone:has(#final.active){width:min(100%,490px);padding:0;border:0;border-radius:0;background:none;box-shadow:none;overflow:visible}
+.phone:has(#final.active):before{display:none}
+#final{--gold:#e5b968;--cream:#fff0ce;--red:#570914;--border:#bb843f;color:var(--cream);font-family:Georgia,'Times New Roman',serif;position:relative;isolation:isolate;text-align:center;padding:24px 17px 22px;border:2px solid #a66c30;border-radius:24px;background:radial-gradient(ellipse at 50% 22%,#801724 0%,#530c16 48%,#31070e 100%);box-shadow:inset 0 0 0 5px #4c0b14,inset 0 0 0 6px #8d582e,0 15px 45px #0005;overflow:hidden}
+#final:before{content:'';position:absolute;inset:9px;border:1px solid #a6743b;border-radius:17px;pointer-events:none}
+#final:after{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 50% 29%,#aa442b30,transparent 35%),repeating-linear-gradient(0deg,transparent 0 3px,#fff1d702 3px 4px);pointer-events:none}
+#final .final-card{position:relative;z-index:1;margin:0;padding:0;border:0;background:none;box-shadow:none}
+#final .top{font-family:Georgia,serif;color:#e8c58a;letter-spacing:3px;font-size:10px;line-height:1.8;margin:0 0 18px}
+#final .final-badge{font-family:Georgia,serif;display:inline-flex;max-width:100%;justify-content:center;padding:10px 14px;background:#173025;border:1px solid #c99d52;border-radius:999px;color:#f5dfad;letter-spacing:1.3px;font-size:10px;line-height:1.5;box-shadow:0 3px 12px #18050755}
+#final .mascot-wrap{width:min(100%,245px);height:245px;margin:20px auto 14px}
+#final .mascot-halo{inset:9px;background:radial-gradient(circle,#a7522e 0%,#6c1a1c 60%,transparent 73%);filter:blur(5px)}
+#final .mascot-ring{inset:6px;border:3px double #e1b569;box-shadow:0 0 0 5px #7f481e,0 0 0 6px #b8873b,0 0 22px #e5a74955}
+#final .mascot{width:205px;height:205px;max-width:85%;max-height:85%;object-fit:contain;filter:drop-shadow(0 8px 12px #25060866)}
+#final .spark{color:#f8d68d}
+#final .reveal-kicker{font-family:Georgia,serif;color:#e9c48a;font-size:11px;letter-spacing:3px;margin:20px 0 15px}
+#final .reveal-main{font-family:Georgia,'Times New Roman',serif;font-size:clamp(25px,7vw,37px);font-weight:700;line-height:1.13;letter-spacing:-.5px;color:#ffe8b7;text-shadow:0 2px 0 #6d321a,0 3px 8px #16030755;margin:0 0 22px}
+#final .reveal-message{font-family:Georgia,'Times New Roman',serif;font-size:clamp(22px,6vw,30px);font-weight:700;line-height:1.25;color:#fff1d7;margin:0 0 20px}
+#final .role-pill-row{gap:8px;margin:0 0 20px}
+#final .role-pill{font-family:Georgia,serif;border:1px solid #c9954b;border-radius:999px;padding:8px 11px;background:#55121a;color:#f7dfb5;font-size:12px;line-height:1.3}
+#final .install-panel{background:linear-gradient(135deg,#fff0cf,#edcf92);border:2px solid #d5a95a;border-radius:14px;padding:16px 14px;color:#662318;box-shadow:inset 0 0 0 2px #fff5da,0 5px 18px #17040855;text-align:left;margin:0 0 18px}
+#final .install-head{font-family:ui-monospace,monospace;color:#662318;font-size:11px;letter-spacing:.5px}
+#final .install-head strong{color:#702015;font-size:22px}
+#final .install-panel .bar{background:#d9b886;height:9px;border:1px solid #c99e60}
+#final .install-panel .fill{background:linear-gradient(90deg,#890f25,#ba3f38)}
+#final .install-foot{font-family:ui-monospace,monospace;color:#8d492b;font-size:9px;line-height:1.5}
+#final .note-line{font-family:Georgia,serif;color:#f2d7a8;font-size:14px;line-height:1.6;margin:0 0 18px}
+#final .arrival-box{border:1px solid #d3a359;border-radius:13px;background:#590e18;padding:15px 12px;margin:0 0 18px}
+#final .arrival-title{font-family:Georgia,serif;color:#d6ad70;font-size:10px;letter-spacing:2px}
+#final .arrival-value{font-family:Georgia,serif;color:#ffedc9;font-size:19px;font-weight:700}
+#final .replay{margin:0;border:1px solid #eac889;border-radius:999px;background:linear-gradient(#f8dfab,#d6a156);color:#632117;font-family:Georgia,serif;font-size:13px;font-weight:700;letter-spacing:.7px;min-height:50px;box-shadow:inset 0 1px #fff8df,0 4px 10px #18040655}
+#final .final-foot{font-family:Georgia,serif;color:#cba16c;font-size:10px;letter-spacing:1.5px;line-height:1.6;margin:18px 0 2px}
+#final .festive-ornaments{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+#final .festive-garland{position:absolute;top:0;width:34px;height:185px;background:url('assets/reveal-garland.svg') center top/contain no-repeat}
+#final .festive-garland.left{left:0}#final .festive-garland.right{right:0;transform:scaleX(-1)}
+#final .festive-corner{position:absolute;width:82px;height:82px;background:url('assets/reveal-corner.svg') center/contain no-repeat;opacity:.9}
+#final .festive-corner.tl{top:0;left:0}#final .festive-corner.tr{top:0;right:0;transform:scaleX(-1)}#final .festive-corner.bl{bottom:0;left:0;transform:scaleY(-1)}#final .festive-corner.br{bottom:0;right:0;transform:scale(-1)}
+#final .festive-diya{position:absolute;bottom:7px;width:65px;height:65px;background:url('assets/reveal-diya.svg') center/contain no-repeat;opacity:.95}#final .festive-diya.left{left:2px}#final .festive-diya.right{right:2px;transform:scaleX(-1)}
+@media(max-width:380px){#final{padding:22px 13px 20px}#final .mascot-wrap{width:210px;height:210px}#final .mascot{width:180px;height:180px}#final .festive-garland{width:25px;height:145px}#final .role-pill{font-size:11px;padding:7px 9px}#final .install-panel{padding:13px 11px}}
+@media(prefers-reduced-motion:reduce){#final .mascot-halo,#final .spark{animation:none}}
