@@ -30,15 +30,16 @@ body:has(#start.active){background:radial-gradient(ellipse at 50% 0%,#4a1819 0%,
 #start .primary-action{min-height:54px;border:2px solid #e2b96b;border-radius:999px;background:linear-gradient(180deg,#b12a35,#861722 75%,#70121c);color:#fff3db;font-family:Georgia,serif;font-size:12px;font-weight:700;letter-spacing:.4px;box-shadow:inset 0 2px #fff3,inset 0 -3px #50101866,0 5px 14px #19040755}
 #start .primary-action:active{transform:translateY(1px)}
 #start .intro-foot{color:#cda982;font-family:Georgia,serif;font-size:10px;line-height:1.6;margin-top:14px}
-/* Flowers and brass decorations are real SVG elements, not text glyphs. */
-#start .wedding-florals{position:absolute;z-index:-1;top:-104px;left:-36px;width:calc(100% + 72px);height:180px;pointer-events:none;overflow:visible}
-#start .wedding-florals img{display:block;width:100%;height:180px;object-fit:fill;filter:drop-shadow(0 3px 5px #15050666)}
-#start .wedding-bottom{position:absolute;z-index:-1;left:-36px;right:-36px;bottom:-109px;height:100px;pointer-events:none;border-radius:0 0 25px 25px;background:radial-gradient(ellipse at 18% 75%,#be662a36,transparent 42%),linear-gradient(180deg,#360d12,#4b1519 70%,#270b0e);border-bottom:1px solid #8b572c;box-shadow:0 8px 35px #0004;overflow:visible}
-#start .wedding-bottom:before{content:'';position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,#b88748,transparent)}
-#start .wedding-diya{position:absolute;left:8px;bottom:0;width:125px;height:105px;filter:drop-shadow(0 4px 8px #100405)}
-#start .diya-art{display:block;width:100%;height:100%;overflow:visible}
-#start .wedding-petals{position:absolute;right:14px;bottom:17px;color:#bb684c;font-size:20px;letter-spacing:12px;transform:rotate(-10deg);opacity:.8}
-#start .wedding-corner-flower{position:absolute;right:-13px;bottom:-15px;width:25px;height:25px;color:#dfb76c;pointer-events:none}
-#start .corner-flower{width:100%;height:100%;overflow:visible}
-@media(max-width:360px){body:has(#start.active){padding:65px 9px 110px}.phone:has(#start.active){padding:24px 17px 22px}#start .intro-title{font-size:30px}#start .intro-copy{font-size:13px}#start .intro-mark{width:78px;height:78px}#start .intro-mark svg{width:65px;height:65px}#start .spec{padding:12px 9px}#start .spec-value{font-size:12px}#start .wedding-florals{left:-28px;width:calc(100% + 56px)}#start .wedding-bottom{left:-28px;right:-28px}}
+/* Decorative SVG assets: no generated replacement image and no animation changes. */
+#start .os-mark{background:#661624 url('../assets/wedding-flower.svg') center/25px 25px no-repeat}
+#start .os-mark>svg{display:none}
+#start .intro-mark{background:radial-gradient(circle at 50% 38%,#a64232,#68121d 75%),url('../assets/wedding-diya.svg') center/76px 76px no-repeat}
+#start .intro-mark>svg{display:none}
+#start .intro-mark{background-image:url('../assets/wedding-diya.svg'),radial-gradient(circle at 50% 38%,#a64232,#68121d 75%);background-size:76px 76px,auto;background-position:center;background-repeat:no-repeat}
+#start .os-chrome:before{content:'';position:absolute;z-index:-1;top:-109px;left:-36px;width:calc(100% + 72px);height:180px;background:url('../assets/wedding-ornaments.svg') center top/100% 180px no-repeat;pointer-events:none;filter:drop-shadow(0 3px 5px #15050666)}
+#start .intro-foot{position:relative}
+#start .intro-foot:before{content:'';position:absolute;z-index:-1;left:-36px;right:-36px;bottom:-112px;height:100px;border-bottom:1px solid #8b572c;border-radius:0 0 24px 24px;background:linear-gradient(180deg,#360d12,#4b1519 70%,#270b0e);box-shadow:0 8px 35px #0004;pointer-events:none}
+#start .intro-foot:after{content:'';position:absolute;left:-37px;bottom:-110px;width:135px;height:115px;background:url('../assets/wedding-diya.svg') center/contain no-repeat;filter:drop-shadow(0 3px 8px #100405);pointer-events:none}
+#start .wedding-florals,#start .wedding-bottom,#start .wedding-corner-flower{display:none}
+@media(max-width:360px){body:has(#start.active){padding:65px 9px 110px}.phone:has(#start.active){padding:24px 17px 22px}#start .intro-title{font-size:30px}#start .intro-copy{font-size:13px}#start .intro-mark{width:78px;height:78px;background-size:65px 65px,auto}#start .spec{padding:12px 9px}#start .spec-value{font-size:12px}#start .os-chrome:before{left:-28px;width:calc(100% + 56px)}#start .intro-foot:before{left:-28px;right:-28px}#start .intro-foot:after{left:-29px}}
 @media(prefers-reduced-motion:reduce){#start .primary-action{transition:none}}
