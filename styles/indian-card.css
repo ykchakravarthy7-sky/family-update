@@ -1,7 +1,7 @@
-/* Page-one Indian invitation theme. Other screens and animation logic remain unchanged. */
-body{background:#180909;color:#fff5df}
-.phone{border-color:#a76c32;background:linear-gradient(150deg,#570e17,#36070e 68%,#26070c);box-shadow:0 18px 60px #0006}
-.phone:before{background:radial-gradient(ellipse,#a4543150,transparent 70%)}
+/* Reversible opening-screen theme. The diagnostics and reveal retain their original styling. */
+body:has(#start.active){background:#180909;color:#fff5df}
+.phone:has(#start.active){border-color:#a76c32;background:linear-gradient(150deg,#570e17,#36070e 68%,#26070c);box-shadow:0 18px 60px #0006}
+.phone:has(#start.active):before{background:radial-gradient(ellipse,#a4543150,transparent 70%)}
 #start{color:#fff5df}
 #start .os-chrome{margin-bottom:20px}
 #start .os-brand{color:#e7c58e;font-family:Georgia,serif;letter-spacing:1.5px}
@@ -22,4 +22,13 @@ body{background:#180909;color:#fff5df}
 #start .auspicious-rule:before,#start .auspicious-rule:after{content:'';height:1px;flex:1;background:linear-gradient(90deg,transparent,#af7d3f,transparent)}
 #start .intro-mark svg{width:43px;height:43px;display:block}
 #start .os-mark svg{width:19px;height:19px;display:block}
+#start{position:relative;isolation:isolate}
+#start:before{content:'';position:absolute;inset:-12px;z-index:-1;border:1px solid #9d6835;border-radius:20px;pointer-events:none}
+#start:after{content:'❧';position:absolute;right:1px;bottom:-14px;color:#b98646;font-size:19px;pointer-events:none}
+#start .intro-mark{position:relative}
+#start .intro-mark:after{content:'';position:absolute;inset:5px;border:1px solid #bd8b45;border-radius:13px;pointer-events:none}
+#start .intro-title span{color:#f2d19a}
+#start .primary-action{border-radius:999px;min-height:50px}
+#start .spec{position:relative}
+#start .spec:before{content:'';position:absolute;top:5px;left:5px;width:8px;height:8px;border-top:1px solid #ab7b43;border-left:1px solid #ab7b43}
 @media(max-width:360px){#start .intro-title{font-size:27px}#start .intro-copy{font-size:13px}}
