@@ -1,0 +1,25 @@
+name: Install approved final invitation
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/install-final-invitation.yml
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify approved artwork
+        run: |
+          test -s assets/final-invitation.png
+          file assets/final-invitation.png | grep -q 'PNG image data'
+      - name: Install isolated final screen
+        run: python3 scripts/install-final-invitation.py
+      - name: Commit final screen
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git diff --cached --quiet || (git commit -m 'Install approved festive final reveal' && git push)
