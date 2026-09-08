@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Family OS — System Update</title>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;min-height:100%;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#080b10;color:#e9eef5}
+  body{display:flex;align-items:center;justify-content:center;padding:18px}
+  .phone{width:min(100%,430px);min-height:680px;border:1px solid #26303d;border-radius:28px;background:linear-gradient(160deg,#0c1118,#07090d);box-shadow:0 24px 70px #0008;padding:28px 22px;position:relative;overflow:hidden}
+  .glow{position:absolute;inset:-40%;background:radial-gradient(circle,#18334a22,transparent 55%);pointer-events:none}
+  .top{font-size:11px;color:#738094;letter-spacing:1.5px}
+  h1{font-size:24px;margin:10px 0 5px;letter-spacing:-.5px}
+  .sub{font-size:12px;color:#8f9aaa;line-height:1.5;margin-bottom:28px}
+  button{border:1px solid #506579;background:#111b26;color:#dcecff;border-radius:10px;padding:13px 20px;font:inherit;font-size:12px;cursor:pointer;width:100%}
+  button:active{transform:scale(.98)}
+  .screen{display:none}.screen.active{display:block}
+  .terminal{font-size:11px;line-height:1.8;color:#8d9aaa;min-height:440px}
+  .line{opacity:0;animation:show .35s forwards}.white{color:#e8edf3}.ok{color:#9cc9a7}
+  .member{margin:13px 0 19px;padding:11px 12px;border:1px solid #222c38;border-radius:10px;background:#0a0f15}
+  .role{font-size:13px;color:#e9eef5;margin-bottom:7px}.status{font-size:10px;color:#7e8998}
+  .bar{height:5px;background:#1c2631;border-radius:99px;overflow:hidden;margin:7px 0}.fill{height:100%;width:0;background:#a8bdd0;transition:width .7s ease}
+  .center{text-align:center}.big{font-size:28px;margin-top:42px}.reveal{font-family:system-ui,sans-serif;font-weight:700;font-size:24px;line-height:1.2;margin:15px 0}.baby{font-size:58px}.small{font-size:11px;color:#9aa5b4;line-height:1.6}
+  .finalbar{height:8px;background:#1c2631;border-radius:99px;overflow:hidden;margin:20px 0}.finalbar div{height:100%;width:0;background:#d2dee9;transition:width 1.8s ease}
+  .pulse{animation:pulse 1s infinite alternate}@keyframes pulse{to{opacity:.45}}@keyframes show{to{opacity:1}}
+</style>
+</head>
+<body>
+<div class="phone">
+<div class="glow"></div>
+
+<section id="start" class="screen active">
+  <div class="top">FAMILY OS // SECURE UPDATE</div>
+  <h1>System Update Available</h1>
+  <div class="sub">A major family update is ready to install.<br><br>Estimated installation time: <b>12 seconds</b>.<br><br>Do not close this window.</div>
+  <button id="startBtn">▶ START FAMILY UPDATE</button>
+</section>
+
+<section id="run" class="screen">
+  <div class="top">FAMILY OS // ANALYSIS</div>
+  <div id="terminal" class="terminal"></div>
+</section>
+
+<section id="final" class="screen">
+  <div class="center">
+    <div class="top">FAMILY OS // UPDATE COMPLETE</div>
+    <div class="big">🎉</div>
+    <div class="reveal">NEW FAMILY MEMBER<br>DETECTED</div>
+    <div class="baby">👶</div>
+    <div class="reveal">YOU'RE GOING TO BE<br>GRANDPARENTS! ❤️</div>
+    <div class="small">Grandmother • Grandfather • Mother • Father • Uncle</div>
+    <div class="finalbar"><div id="finalFill"></div></div>
+    <div class="small"><b>BABY STATUS: LOADING…</b><br>Installation will complete soon.<br><br>Estimated arrival: <b>[MONTH / YEAR]</b></div>
+  </div>
+</section>
+</div>
+
+<script>
+const terminal=document.getElementById('terminal');
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function add(text,cls=''){
+  const d=document.createElement('div'); d.className='line '+cls; d.innerHTML=text;
+  terminal.appendChild(d); requestAnimationFrame(()=>d.style.animationDelay='0ms');
+}
+function member(icon,name,pct,status){
+  const d=document.createElement('div'); d.className='member';
+  d.innerHTML=`<div class="role">${icon} ${name}</div><div class="status">${status}</div><div class="bar"><div class="fill"></div></div><div class="status">${pct}%</div>`;
+  terminal.appendChild(d); requestAnimationFrame(()=>d.querySelector('.fill').style.width=pct+'%');
+}
+async function run(){
+  document.getElementById('start').classList.remove('active');
+  document.getElementById('run').classList.add('active');
+  add('> Initializing Family OS...','white'); await sleep(500);
+  add('> Connecting to family database...'); await sleep(500);
+  add('✓ Connection established','ok'); await sleep(350);
+  add('> Analyzing family members...','white'); await sleep(400);
+
+  member('👩','MOTHER','72','Relationship verified'); await sleep(700);
+  member('👨','FATHER','81','Relationship verified'); await sleep(700);
+  member('👵','GRANDMOTHER','64','Role detected'); await sleep(700);
+  member('👴','GRANDFATHER','76','Role detected'); await sleep(700);
+
+  member('👨','BROTHER','91','Searching for available family roles...'); await sleep(700);
+  add('⚠ ROLE UPDATE REQUIRED','white'); await sleep(350);
+  add('> New role detected: <b>UNCLE</b> ❤️','ok'); await sleep(500);
+
+  add('> Running final family scan...','white'); await sleep(450);
+  add('> Searching for missing family member...'); await sleep(600);
+  add('🚨 NEW USER DETECTED','white'); await sleep(500);
+
+  document.getElementById('run').classList.remove('active');
+  document.getElementById('final').classList.add('active');
+  setTimeout(()=>document.getElementById('finalFill').style.width='99%',300);
+}
+document.getElementById('startBtn').onclick=run;
+</script>
+</body>
+</html>
