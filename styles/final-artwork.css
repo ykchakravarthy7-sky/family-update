@@ -1,0 +1,12 @@
+/* Exact approved artwork, scoped to the final screen only. */
+body:has(#final.active){background:#21070c}
+.phone:has(#final.active){width:min(100%,490px);padding:0;border:0;background:transparent;box-shadow:none;overflow:visible}
+.phone:has(#final.active):before{display:none}
+#final{position:relative;isolation:isolate;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;color:#fff1d7}
+#final .final-artwork{position:relative;width:100%;line-height:0}
+#final .final-artwork img{display:block;width:100%;height:auto;max-width:none}
+#final .artwork-replay{position:absolute;left:15%;top:87.1%;width:70%;height:5.1%;min-height:0;padding:0;border:0;border-radius:999px;background:transparent;box-shadow:none;cursor:pointer;z-index:2;touch-action:manipulation}
+#final .artwork-replay:focus-visible{outline:3px solid #fff1c5;outline-offset:4px}
+#final .artwork-replay:hover{background:#ffffff0a}
+#final .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+@media(max-width:360px){.phone:has(#final.active){width:100%}}
