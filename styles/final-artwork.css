@@ -10,3 +10,6 @@ body:has(#final.active){background:#21070c}
 #final .artwork-replay:hover{background:#ffffff0a}
 #final .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 @media(max-width:360px){.phone:has(#final.active){width:100%}}
+/* Opening-page icon only: preserve the original card and all reveal screens. */
+#start .intro-mark{font-size:0;background-image:url('../assets/intro-diya.svg'),linear-gradient(145deg,#203a54,#101c2c);background-repeat:no-repeat;background-position:center;background-size:48px 48px,auto}
+#start .intro-mark::before,#start .intro-mark::after{content:none}
